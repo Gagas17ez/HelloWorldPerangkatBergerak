@@ -1,6 +1,6 @@
 # helloproject
 
-A new Flutter project.
+A hello world flutter project for PENS.
 
 ## Getting Started
 
