@@ -32,38 +32,43 @@ class _MyHomePageState extends State<MyHomePage> {
   int _primeorno = 0;
   int _cek = 0;
   String _text = "";
+  String _text2 = "";
+  String _text3 = "";
+  String _text4 = "";
 
   void _incrementCounter() {
     setState(() {
       _counter++;
 
       //percobaan1
-      if (_counter > 60) {
+      if (_counter > 70) {
         _counter = 1;
       }
 
       //perocbaan2
-      // if (_counter % 2 == 0) {
-      //   _text = "Bilangan Genap";
-      // } else {
-      //   _text = "Bilangan ganjil";
-      // }
+      if (_counter % 2 == 0) {
+        _text4 = "Bilangan Genap";
+      } else if (_counter == 69) {
+        _text4 = "Nice";
+      } else {
+        _text4 = "Bilangan ganjil";
+      }
 
-      // _text = "Genap : ";
-      // //percobaan3
-      // for (int i = 1; i <= _counter; i++) {
-      //   if (i % 2 == 0) {
-      //     _text += "${i}, ";
-      //   }
-      // }
+      //percobaan3
+      _text3 = "Genap : ";
+      for (int i = 1; i <= _counter; i++) {
+        if (i % 2 == 0) {
+          _text3 += "${i}, ";
+        }
+      }
 
       //latihan
-      // _text = "genap kelipatan 3 = ";
-      // for (int i = 1; i <= _counter; i++) {
-      //   if (i % 2 == 0 && i % 3 == 0) {
-      //     _text += "${i}, ";
-      //   }
-      // }
+      _text2 = "genap kelipatan 3 = ";
+      for (int i = 1; i <= _counter; i++) {
+        if (i % 2 == 0 && i % 3 == 0) {
+          _text2 += "${i}, ";
+        }
+      }
 
       //Tugas
       _text = "Bilangan Prima : ";
@@ -99,11 +104,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the home button this many times : ',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Colors.blue[300],
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
+              child: Text(
+                "Counter :",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.blue[300],
+                ),
               ),
             ),
             Text(
@@ -114,14 +123,50 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.blue[300],
               ),
             ),
-            Text(
-              _text,
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-                color: Colors.blue[300],
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
+              child: Text(
+                _text4,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.blue[300],
+                ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
+              child: Text(
+                _text3,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.blue[300],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
+              child: Text(
+                _text2,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.blue[300],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
+              child: Text(
+                _text,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.blue[300],
+                ),
+              ),
+            )
           ],
         ),
       ),
