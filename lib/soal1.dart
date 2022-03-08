@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         _text4 = "Bilangan ganjil";
       }
 
-      //percobaan3
+      // percobaan3
       _text3 = "Genap : ";
       for (int i = 1; i <= _counter; i++) {
         if (i % 2 == 0) {
