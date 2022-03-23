@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:helloproject/model/wisataModels.dart';
 import 'package:helloproject/screen/detailWisata.dart';
+import 'package:helloproject/screen/donetourisimlist.dart';
+import 'package:helloproject/screen/tourismList.dart';
 
 class MenuWisata extends StatefulWidget {
   MenuWisata({Key? key}) : super(key: key);
@@ -12,39 +14,43 @@ class MenuWisata extends StatefulWidget {
 }
 
 class _MenuWisataState extends State<MenuWisata> {
+  final List<TourismPlace> doneTourismPlaceList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade900,
-      appBar: AppBar(
+        backgroundColor: Colors.grey.shade900,
+        appBar: AppBar(
           title: Text(
-        "Wisata Surabaya",
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'poppins',
-          color: Colors.lightBlue,
+            "Wisata Surabaya",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'poppins',
+              color: Colors.lightBlue,
+            ),
+          ),
+          actions: <Widget>[
+            IconButton(
+                icon: const Icon(Icons.done_all_outlined),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return DoneTourismList(
+                          doneTourismPlaceList: doneTourismPlaceList);
+                    }),
+                  );
+                })
+          ],
         ),
-      )),
-      body: ListView.builder(
-          itemCount: TourismPlaceList.length,
-          itemBuilder: (BuildContext context, int index) {
-            final TourismPlace place = TourismPlaceList[index];
-            return InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return detailwisata(place: place);
-                }));
-              },
-              child: listitem(place),
-            );
-          }),
-    );
+        body: TourismList(doneTourismPlaceList: doneTourismPlaceList));
   }
 }
 
 Widget listitem(TourismPlace place) {
   return Card(
+    // color: isDone ? Colors.white : Colors.white,
     margin: EdgeInsets.all(5),
     color: Colors.blue[400],
     shadowColor: Colors.grey,
