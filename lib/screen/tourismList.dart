@@ -3,6 +3,12 @@ import 'package:helloproject/model/listItem.dart';
 
 import 'package:helloproject/model/wisataModels.dart';
 import 'package:helloproject/screen/detailWisata.dart';
+import 'package:helloproject/api/apiNEwisata.dart';
+import 'package:helloproject/model/apiWisata.dart';
+import 'package:helloproject/screentesting/detailapi.dart';
+import 'package:helloproject/model/wisataModels.dart';
+import 'package:helloproject/model/listItem.dart';
+import 'package:helloproject/screen/donetourisimlist.dart';
 
 class TourismList extends StatefulWidget {
   final List<TourismPlace> doneTourismPlaceList;

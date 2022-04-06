@@ -39,7 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
-
       //percobaan1
       if (_counter > 70) {
         _counter = 1;
@@ -70,25 +69,28 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       }
 
-      //Tugas
+      //Tugas Nak kene gas
+      //menampilkan bilangan prima mulai dari 1 sampai n
       _text = "Bilangan Prima : ";
+      void primeChekcer(int num) {
+        int temp = 0;
+        int flag = 0;
 
-      void primeornoooo(int num) {
-        int i, m = 0, cek = 0;
-        m = num ~/ 2;
-        for (i = 2; i <= m; i++) {
+        temp = num ~/ 2;
+        for (int i = 2; i < temp; i++) {
           if (num % i == 0) {
-            cek = 1;
+            flag = 1; //gunanya menandai bilangan bukan prima
             break;
           }
         }
-        if (cek == 0) {
-          _text += "${num}, ";
+        if (flag == 0) {
+          //meannadai bilangan lolos pengecekan dan sebuah
+          _text += "${num}, "; //bil prima
         }
       }
 
-      for (int i = 2; i <= _counter; i++) {
-        primeornoooo(i);
+      for (int i = 2; i < _counter; i++) {
+        primeChekcer(i);
       }
     });
   }
