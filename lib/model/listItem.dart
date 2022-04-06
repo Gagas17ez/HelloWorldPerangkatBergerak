@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:helloproject/model/wisataModels.dart';
+import 'package:helloproject/model/apiWisata.dart';
 
 class ListItem extends StatelessWidget {
-  final TourismPlace place;
+  final Wisata place;
   final bool isDone;
   final Function(bool? value) onCheckboxClick;
 
@@ -25,9 +25,9 @@ class ListItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            leading: Image.asset(place.imageasset),
+            leading: Image.network(place.imageasset),
             title: Text(
-              place.name,
+              place.name!,
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
