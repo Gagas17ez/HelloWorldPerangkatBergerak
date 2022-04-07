@@ -7,7 +7,7 @@ class ListItem extends StatelessWidget {
   final bool isDone;
   final Function(bool? value) onCheckboxClick;
 
-  const ListItem({
+  ListItem({
     Key? key,
     required this.place,
     required this.isDone,

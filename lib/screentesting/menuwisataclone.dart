@@ -9,14 +9,14 @@ import 'package:helloproject/model/listItem.dart';
 import 'package:helloproject/screentesting/donetourismclone.dart';
 import 'package:helloproject/screen/tourismList.dart';
 
-class MenuWisataclone extends StatefulWidget {
-  MenuWisataclone({Key? key}) : super(key: key);
+class MenuWisataApi extends StatefulWidget {
+  MenuWisataApi({Key? key}) : super(key: key);
 
   @override
-  State<MenuWisataclone> createState() => _MenuWisataStateclone();
+  State<MenuWisataApi> createState() => _MenuWisataApiStateclone();
 }
 
-class _MenuWisataStateclone extends State<MenuWisataclone> {
+class _MenuWisataApiStateclone extends State<MenuWisataApi> {
   final List<Wisata> doneTourismPlaceList = [];
 
   @override
@@ -40,7 +40,7 @@ class _MenuWisataStateclone extends State<MenuWisataclone> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return DoneTourismList(
+                      return DoneTourismListApi(
                           doneTourismPlaceList: doneTourismPlaceList);
                     }),
                   );
@@ -56,7 +56,8 @@ class _MenuWisataStateclone extends State<MenuWisataclone> {
                       itemCount: snapshot.data!.length,
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
-                        final Wisata wisata = snapshot.data[index];
+                        Wisata wisatah = snapshot.data[index];
+
                         return Card(
                             margin: EdgeInsets.all(5),
                             color: Colors.blue[400],
@@ -66,26 +67,34 @@ class _MenuWisataStateclone extends State<MenuWisataclone> {
                               onTap: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return detailwisatapi(wisata: wisata);
+                                  return detailwisatapi(wisata: wisatah);
                                 }));
                               },
                               child: ListItem(
-                                  place: wisata,
-                                  isDone: doneTourismPlaceList.contains(wisata),
+                                  place: wisatah,
+                                  isDone:
+                                      doneTourismPlaceList.contains(wisatah),
                                   onCheckboxClick: (bool? value) {
                                     setState(() {
                                       if (value != null) {
                                         value
-                                            ? doneTourismPlaceList.add(wisata)
+                                            ? doneTourismPlaceList.add(wisatah)
                                             : doneTourismPlaceList
-                                                .remove(wisata);
+                                                .remove(wisatah);
                                       }
                                     });
                                   }),
                             ));
                       });
                 }
-                return CircularProgressIndicator();
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height / 1.3,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                    ),
+                  ),
+                );
               }),
         ));
   }

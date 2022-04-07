@@ -80,6 +80,18 @@ class _TourismListState extends State<TourismList> {
               return detailwisata(place: place);
             }));
           },
+          // child: ListItem(
+          //     place: wisata,
+          //     isDone: doneTourismPlaceList.contains(place),
+          //     onCheckboxClick: (bool? value) {
+          //       setState(() {
+          //         if (value != null) {
+          //           value
+          //               ? doneTourismPlaceList.add(place)
+          //               : doneTourismPlaceList.remove(place);
+          //         }
+          //       });
+          //     }),
         );
       },
     );

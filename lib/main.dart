@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch().copyWith(
         primary: Color.fromARGB(255, 53, 53, 53),
       )),
-      home: MenuWisataclone(),
+      home: MenuWisataApi(),
     );
   }
 }

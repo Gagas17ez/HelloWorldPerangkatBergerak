@@ -5,9 +5,9 @@ import 'package:helloproject/model/apiWisata.dart';
 
 import 'package:helloproject/model/wisataModels.dart';
 
-class DoneTourismList extends StatelessWidget {
+class DoneTourismListApi extends StatelessWidget {
   final List<Wisata> doneTourismPlaceList;
-  const DoneTourismList({
+  const DoneTourismListApi({
     Key? key,
     required this.doneTourismPlaceList,
   }) : super(key: key);
